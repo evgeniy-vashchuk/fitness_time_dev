@@ -1,0 +1,1179 @@
+// Шрифты + normalize ↓
+@import "fonts+normalize"
+// Переменные ↓
+@import "vars"
+// Миксины ↓
+@import "mixins"
+// Плагины и библиотеки CSS/SASS ↓
+@import "libs"
+// Подключаем спрайты (раскомментируй @import при появлении PNG спрайтов) ↓
+@import "sprite"
+
+/* 1. MAIN ================== */
+
+.main
+	position: relative
+	overflow: hidden
+	min-height: 100%
+	width: 100%
+	min-width: 320px
+	margin: 0 auto
+
+.wrapper
+	position: relative
+	max-width: 1200px
+	min-width: 320px
+	padding: 0 15px
+	margin-right: auto 
+	margin-left: auto
+	&--for-headline
+		padding-right: 0
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.vh
+	visibility: hidden
+
+
+#my-menu:not( .mm-menu )
+	display: none
+/* Arrow TOP ================== */
+
+.arrow-top
+	position: fixed
+	right: 15px
+	bottom: -100px
+	width: 60px
+	height: 60px
+	z-index: 9999
+	background-color: $main
+	+br(5px)
+	border: 1px solid $accent
+	opacity: 0
+	+tr(0.7s)
+	&:hover
+		background-color: lighten($main, 10%)
+	&__icon
+		display: block
+		margin: 8px auto 0
+		width: 40px
+		height: 40px
+	&.top-hidden
+		bottom: 15px
+		opacity: 1
+		visibility: visible
+		transition-delay: 0
+.tr
+	+tr(0s)
+
+/* Arrow TOP END ================== */
+
+/* PRELOADER ================== */
+
+.loaderArea
+	width: 100vw
+	background: #F2F1EF
+	overflow: hidden
+	position: fixed
+	left: 0
+	top: 0
+	right: 0
+	bottom: 0
+	z-index: 99999999
+
+$animation-duration: 1.3s
+
+.loader
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	width: 50px
+	height: 10px
+	background: #3498DB
+	border-radius: 5px
+	&:before, &:after
+		position: absolute
+		display: block
+		content: ""
+		animation: load $animation-duration ease-in-out infinite
+		height: 10px
+		border-radius: 5px
+	&:before
+		top: -20px
+		left: 10px
+		width: 40px
+		background: #EF4836
+	&:after
+		bottom: -20px
+		width: 35px
+		background: #F5AB35
+
+@keyframes load
+	0%
+		transform: translateX(40px)
+	50%
+		transform: translateX(-20px)
+	100%
+		transform: translateX(40px)
+
+/* PRELOADER END ================== */
+
+/* Стилизация полосы прокрутки ================== */
+
+::-webkit-scrollbar-button 
+	background-image: url ('')
+	background-repeat: no-repeat
+	width: 6px
+	height: 0px
+
+::-webkit-scrollbar-track
+	background-color: $main // Цвет дорожки, по которой двигается бегунок прокрутки
+	box-shadow: 0px 0px 3px #000 inset
+
+::-webkit-scrollbar-thumb
+	border-radius: 0px // Закругление бегунка
+	background-color: $accent // Цвет бегунка
+	background-image: url("../img/icon_for_scrol.png")
+	background-position: center
+	background-repeat: no-repeat
+
+::-webkit-scrollbar-thumb:hover 
+	background-color: lighten($accent, 10%) // Цвет бегунка при наведении на него курсора
+
+::-webkit-resizer
+	background-image: url('')
+	background-repeat: no-repeat
+	width: 7px
+	height: 0px
+
+::-webkit-scrollbar
+	width: 15px // Основная ширина полосы прокрутки
+
+// For Internet Explorer
+body
+	scrollbar-face-color: $accent
+	scrollbar-track-color: $main
+	scrollbar-shadow-color: $accent
+	scrollbar-arrow-color: $accent
+
+/* 2. BUTTON ================== */
+
+.btn, a.btn
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 6px 10px 6px 10px
+	font-size: 14px
+	text-transform: uppercase
+	border-radius: 0px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten($accent, 10%)
+		&::after
+			opacity: .22
+	&:active
+		background-color: darken($accent, 5%)
+		&::after
+			opacity: .32
+
+input[type="submit"].btn, button.btn
+	padding-top: 0
+
+/* 3. FORM ================== */
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+textarea
+	height: 38px
+	padding: 10px
+	font-family: "Oswald"
+	color: #656565
+	background: rgba(32,32,32,0.5)
+	border: 1px solid #7d7d7d
+	line-height: 12px
+	&.form-control
+		display: block
+		width: 100%
+
+textarea
+	resize: none 
+	height: auto
+	min-height: 100px
+	padding-top: 10px
+
+label 
+	display: block
+
+/* 4. HEADER ================== */
+
+.top-line-black
+	position: absolute
+	top: 0
+	left: 0
+	background-color: $main
+	width: 100vw
+	height: 100px
+
+.top-line-small
+	position: fixed
+	top: 0
+	left: 0
+	width: 100vw
+	height: 50px
+	background-color: $main
+	z-index: 99
+
+.top-line
+	position: fixed
+	top: 0
+	left: 0
+	height: 100px
+	width: 100vw
+	background-color: $main
+	overflow: hidden
+	z-index: 999
+	transition: 0.5s
+	.wrapper
+		height: 100px
+	&__logo
+		padding-top: 40px
+		float: left
+		transition: all 0.5s
+	&__navigation
+		padding-top: 37px
+		float: right
+		transition: all 0.5s
+	.hamburger
+		transition: all 0.5s
+
+.top-line.small
+	height: 50px
+	.logo
+		padding-top: 11px
+	.navigation
+		padding-top: 9px
+	.hamburger
+		top: 13px
+		padding-top: 0
+
+.active_menu
+	background-color: $accent !important
+
+.active_2, .active_2::before
+	color: $accent !important
+	font-weight: bold
+
+.logo
+	color: $white
+	font-size: 24px
+	font-family: "Raleway-ExtraBold", Arial, Verdana, Helvetica, sans-serif
+
+.logo span
+	color: $accent
+
+.navigation
+	font-family: "Oswald", Arial, Verdana, Helvetica, sans-serif
+	text-transform: uppercase
+	font-size: 14px
+	letter-spacing: 1.025px
+	li
+		float: left
+		list-style-type: none
+	&__item
+		display: block
+		padding: 8px 14px
+		margin-left: 7px
+		color: $white
+		&:hover
+			background-color: darken($accent, 35%)
+	&__item--first
+		margin-left: 0
+		margin-right: 15px
+
+.hamburger
+	display: none
+	position: absolute
+	right: 0
+	top: 21px
+	z-index: 5
+	.hamburger-box
+		width: 50px
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after 
+	width: 50px
+	background-color: $accent
+	border-radius: 0
+.hamburger:hover
+	opacity: 1
+
+.mm-navbar
+	height: auto
+	position: relative
+	border: none
+	padding: 0 20px
+	.mm-title 
+		padding: 0
+		img
+			width: 200px
+			margin-bottom: 20px
+			margin-left: auto
+			margin-right: auto
+			display: block
+			max-width: 100%
+			height: auto
+
+.mm-listview > li:not(.mm-divider):after
+	left: 50px
+	right: 50px
+.mm-panels > .mm-panel:after, .mm-panels > .mm-panel:before
+	height: 0
+.mm-panels > .mm-panel > .mm-listview:first-child, .mm-panels > .mm-panel > .mm-navbar + .mm-listview
+	margin-top: 0
+.mm-menu.mm-theme-black .mm-listview > li.mm-selected > a:not(.mm-next), .mm-menu.mm-theme-black .mm-listview > li.mm-selected > span
+	background-color: transparent
+	color: none
+.mm-menu.mm-theme-black
+	background: $main
+.mm-listview > li > a:hover
+	color: rgba(255, 255, 255, 0.6) !important
+.mm-listview > li > a:hover::before
+	color: #fff !important
+
+.mm-listview
+	font-size: 18px
+	> li
+		> a
+			padding:
+				left: 50px
+				right: 50px
+				top: 20px
+			&:hover
+				color: $accent
+				&::before
+					color: $accent
+			&::before
+				font-family: fontawesome
+				color: #FEFEFE
+				margin-right: 15px
+				text-decoration: none
+				display: inline-block
+				width: 20px
+				text-align: center
+				+tr(all 0.2s linear)
+
+.mm-listview
+	> li:nth-child(1)
+		> a
+			&::before
+				content: '\f015'
+	> li:nth-child(2)
+		> a
+			&::before
+				content: '\f219'
+				font-family: fontawesome
+	> li:nth-child(3)
+		> a
+			&::before
+				content: '\f0c0'
+				font-family: fontawesome
+	> li:nth-child(4)
+		> a
+			&::before
+				content: '\f03e'
+				font-family: fontawesome
+	> li:nth-child(5)
+		> a
+			&::before
+				content: '\f155'
+				font-family: fontawesome
+	> li:nth-child(6)
+		> a
+			&::before
+				content: '\f2b5'
+				font-family: fontawesome
+	> li:nth-child(7)
+		> a
+			&::before
+				content: '\f003'
+				font-family: fontawesome
+
+#mm-blocker
+	z-index: 9999
+
+.header
+	width: 100vw
+	height: 581px
+	overflow: hidden
+	margin-top: 100px
+	background-color: $main
+	&__phone
+		width: 177px
+		height: 37px
+		position: absolute
+		top: 0
+		right: 0
+		margin-right: 15px
+	&__inscription-top
+		color: $white
+		text-transform: uppercase
+		font-size: 12px
+		display: inline-block
+		font-family: "Oswald", Arial, Verdana, Helvetica, sans-serif
+		background-color: $accent
+		padding: 11px 12px
+		margin: 217px 0 2px 7px
+		letter-spacing: 0.6px
+	&__title
+		color: $white
+		text-transform: uppercase
+		font-size: 30px
+		display: inline-block
+		font-family: $headline
+		background-color: $main
+		padding: 20px 20px
+		margin-left: 7px
+		margin-bottom: 2px
+		letter-spacing: -0.4px
+	&__inscription-bottom
+		color: $white
+		text-transform: uppercase
+		font-size: 18px
+		display: inline-block
+		font-family: "Oswald", Arial, Verdana, Helvetica, sans-serif
+		background-color: $main
+		padding: 12px 24px
+		margin-left: 7px
+		letter-spacing: 1px
+
+.header .wrapper
+	z-index: 1
+
+.phone
+	&__icon
+		display: block
+		background-color: #BD4141
+		width: 37px
+		height: 37px
+		color: #FFFFFF
+		float: left
+		text-align: center
+		padding-top: 9px
+		font-size: 16px
+	&__number
+		display: block
+		width: 140px
+		height: 37px
+		background-color: $accent
+		color: #FFFFFF
+		font-family: "Oswald", Arial, Verdana, Helvetica, sans-serif
+		font-size: 14px
+		overflow: hidden
+		text-align: center
+		padding-top: 11px
+
+.tippy-tooltip.honeybee-theme
+	background-color: $main
+	border: 2px solid $accent
+	color: #fff
+	font-family: "Oswald", Arial, Verdana, Helvetica, sans-serif
+	font-size: 18px
+
+.tippy-tooltip.honeybee-theme [x-arrow]
+	border-bottom: 7px solid $accent
+
+#slider
+	position: absolute
+	width: 100vw
+	overflow: hidden
+	top: 100px
+	left: 0
+
+.slide-1, .slide-2, .slide-3
+	height: 581px
+	width: 100vw
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+	overflow: hidden
+
+.slide-1
+	background-image: url(../img/header-bg-1.jpg)
+
+.slide-2
+	background-image: url(../img/header-bg-2.jpg)
+
+.slide-3
+	background-image: url(../img/header-bg-3.jpg)
+
+/* 5. CONTENT ================== */
+
+/* Features ================== */
+
+.features
+	background-color: #fff
+	min-height: 355px
+	width: 100vw
+	padding-top: 62px
+	padding-bottom: 63px
+	overflow: hidden
+	&__title
+		font-family: "Oswald-Bold"
+		color: $main
+		font-size: 30px
+		text-transform: uppercase
+		line-height: 30px
+		text-align: center
+		padding-bottom: 11px
+		letter-spacing: -0.2px
+		span
+			color: $accent
+	&__description
+		color: #a2a2a2
+		font-family: "DroidSerif-Italic"
+		font-size: 16px
+		text-align: center
+		padding-bottom: 52px
+		letter-spacing: 0.7px
+	&__services--1
+		padding-right: 15px
+	&__services--2
+		padding-left: 15px
+		padding-right: 15px
+	&__services--3
+		padding-left: 15px
+		padding-right: 15px
+	&__services--4
+		padding-left: 15px
+
+.services
+	width: 25%
+	float: left
+	&__title
+		color: $main
+		font-family: "Oswald-Bold"
+		font-size: 14px
+		line-height: 24px
+		text-transform: uppercase
+		padding-bottom: 9px
+		&::before
+			display: inline-block
+			content: ''
+			margin-right: 15px
+			margin-bottom: -4px
+	&__title--icon-1::before
+		+sprite($s-features_icon_1)
+	&__title--icon-2::before
+		+sprite($s-features_icon_2)
+		height: 23px !important
+	&__title--icon-3::before
+		+sprite($s-features_icon_3)
+		height: 23px !important
+	&__title--icon-4::before
+		+sprite($s-features_icon_4)
+	&__description
+		color: #777
+		font-family: "OpenSans-Light"
+		font-size: 13px
+		line-height: 21px
+.br
+	display: none
+	margin: 0
+
+/* Features END ================== */
+
+/* Our Team ================== */
+
+.our-team:after
+	content: ""
+	display: block
+	clear: both
+	visibility: hidden
+	height: 0
+.our-team
+	min-height: 527px
+	width: 100vw
+	background-image: url(../img/our-team-bg.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+	overflow: hidden
+	padding-top: 61px
+	text-align: center
+	&__title
+		text-align: center
+		color: #fff
+		font-family: "Oswald-Bold"
+		font-size: 24px
+		text-transform: uppercase
+		margin-bottom: 47px
+		letter-spacing: 0.5px
+		&::after
+			content: ''
+			display: block
+			margin: 0 auto
+			width: 45px
+			padding-top: 6px
+			border-bottom: solid 1px #fff
+	&__trainer
+		height: 315px
+		width: 270px
+		margin: 11px
+		background-color: #fff
+		position: relative
+		overflow: hidden
+		display: inline-block
+	&__trainer:hover .our-team__photo
+		position: absolute
+		top: -240px
+		+tr(1s)
+	&__trainer:hover .our-team__name
+		position: absolute
+		bottom: 262px
+		+tr(1s)
+	&__trainer:hover .our-team__status
+		position: absolute
+		bottom: 250px
+		+tr(1s)
+	&__trainer:hover .our-team__treiner-description
+		position: absolute
+		bottom: 107px
+		+tr(1s)
+		text-align: left
+	&__trainer:hover .social
+		position: absolute
+		bottom: 45px
+		+tr(1s)
+	&__trainer--last
+		margin-right: 0
+	&__trainer--first
+		margin-left: 0
+	&__photo
+		width: 270px
+		height: 240px
+		margin-bottom: 21px
+		position: absolute
+		top: 0
+		left: 0
+		+tr(1s)
+	&__name
+		font-family: "Oswald-Bold"
+		font-size: 14px
+		text-transform: uppercase
+		color: $main
+		padding-left: 20px
+		padding-bottom: 5px
+		letter-spacing: -0.2px
+		position: absolute
+		bottom: 32px
+		+tr(1s)
+	&__status
+		font-family: "Oswald"
+		font-size: 12px
+		color: #afafaf
+		text-transform: uppercase
+		padding-left: 20px
+		letter-spacing: 0.7px
+		position: absolute
+		bottom: 20px
+		+tr(1s)
+	&__treiner-description
+		padding-left: 20px
+		padding-right: 20px
+		font-family: "OpenSans"
+		font-size: 13px
+		color: #777
+		line-height: 21px
+		position: absolute
+		bottom: -122px
+		+tr(1s)
+		text-align: left
+	&__social
+		color: $accent
+		font-size: 30px
+		padding: 5px
+	&__social:hover
+		color: lighten($accent, 10%)
+
+.social
+	position: absolute
+	bottom: -130px
+	left: 76px
+	+tr(1s)
+
+.fancybox-button, .fancybox-infobar__body
+	background-color: $accent
+	+br(0)
+	color: #fff
+	font-size: 15px
+	+tr(0.5s)
+.fancybox-button:hover, .fancybox-infobar__body:hover
+	background-color: lighten($accent, 10%)
+	+tr(0.5s)
+
+/* Our Team END ================== */
+
+/* Gallery ================== */
+
+.gallery:after
+	content: ""
+	display: block
+	clear: both
+	visibility: hidden
+	height: 0
+.gallery
+	background-color: #FFF
+	min-height: 655px
+	width: 100vw
+	padding-top: 60px
+	padding-bottom: 55px
+	text-align: center
+	&__title
+		text-align: center
+		color: $main
+		font-family: "Oswald-Bold"
+		font-size: 24px
+		text-transform: uppercase
+		margin-bottom: 20px
+		letter-spacing: 0.5px
+		margin-left: 13px
+		&::after
+			content: ''
+			display: block
+			margin: 0 auto
+			width: 45px
+			padding-top: 6px
+			border-bottom: solid 1px $main
+	&__description
+		color: #777
+		font-family: "Open Sans"
+		font-size: 12px
+		font-weight: 400
+		line-height: 21px
+		max-width: 524px
+		margin: 0 auto
+		text-align: center
+		margin-bottom: 46px
+	&__photo
+		width: 270px
+		height: 180px
+		display: inline-block
+		position: relative
+		overflow: hidden
+
+.dh-container
+	display: inline-block
+	position: relative
+	overflow: hidden
+	width: 270px
+	height: 180px
+	margin: 11px
+
+.dh-overlay
+	background: rgba(226,80,80,0.5)
+	width: 100%
+	height: 100%
+	text-align: center
+	line-height: 180px
+	color: #fff
+	font-size: 35px
+	i
+		+tr(0.3s)
+	i:hover
+		color: $accent
+		+tr(0.3s)
+
+.dh-container--1, .dh-container--5
+		margin-left: 0
+.dh-container--4, .dh-container--8
+		margin-right: 0
+
+/* Gallery END ================== */
+
+/* Pricing ================== */
+
+.pricing:after
+	content: ""
+	display: block
+	clear: both
+	visibility: hidden
+	height: 0
+.pricing
+	background-color: $accent
+	min-height: 389px
+	width: 100vw
+	padding-top: 62px
+	padding-bottom: 36px
+	text-align: center
+	&__title
+		text-align: center
+		color: #fff
+		font-family: "Oswald-Bold"
+		font-size: 24px
+		text-transform: uppercase
+		margin-bottom: 60px
+		letter-spacing: -0.5px
+		margin-left: -2px
+		&::after
+			content: ''
+			display: block
+			margin: 0 auto
+			width: 45px
+			padding-top: 6px
+			border-bottom: solid 1px #fff
+.plan--main
+	border: 2px solid #fff
+.plan
+	display: inline-block
+	position: relative
+	overflow: hidden
+	width: 370px
+	height: 175px
+	background-color: #D14343
+	color: #fff
+	position: relative
+	padding: 28px 0
+	margin-right: 23px
+	margin-bottom: 23px
+	&__left
+		float: left
+		width: 138px
+		border-right: solid 1px $accent
+	&__left--main
+		border-right: solid 1px #fff
+	&__icon-1
+		+sprite($s-pricing_1)
+		position: absolute
+		top: 27px
+		left: 50px
+	&__icon-2
+		+sprite($s-pricing_2)
+		position: absolute
+		top: 27px
+		left: 50px
+	&__icon-3
+		+sprite($s-pricing_3)
+		position: absolute
+		top: 27px
+		left: 50px
+	&__name
+		text-transform: uppercase
+		font-family: "Oswald-Bold"
+		font-size: 18px
+		line-height: 21px
+		text-align: center
+		padding-top: 49px
+	&__price
+		color: white
+		font-family: "Oswald-Bold"
+		font-weight: 700
+		text-transform: uppercase
+		font-size: 36px
+		text-align: center
+		padding-top: 18px
+		padding-right: 18px
+		span
+			display: inline-block
+			margin-bottom: 10px
+			font-size: 14px
+			position: absolute
+	&__right
+		float: right
+		margin-right: 16px
+		margin-top: 8px
+	&__right--s
+		margin-right: 40px
+		margin-top: 23px
+	&__right--a
+		margin-right: 37px
+		margin-top: 17px
+	&__right--b
+		margin-right: 37px
+	&__points
+		list-style-type: none
+		color: #fff
+		font-family: "Open Sans"
+		font-size: 12px
+		line-height: 21px
+		text-align: left
+		li::before
+			content: ''
+			display: inline-block
+			+sprite($s-check_icon)
+			padding-right: 18px
+
+.pricing__plan--last
+		margin-right: 0
+
+/* Pricing END ================== */
+
+/* Partners ================== */
+
+.partners
+	background-color: #fff
+	min-height: 265px
+	width: 100vw
+	padding-top: 62px
+	padding-bottom: 68px
+	&__title
+		text-align: center
+		color: $main
+		font-family: "Oswald-Bold"
+		font-size: 24px
+		text-transform: uppercase
+		margin-bottom: 54px
+		letter-spacing: -0.5px
+		margin-left: -2px
+		&::after
+			content: ''
+			display: block
+			margin: 0 auto
+			width: 45px
+			padding-top: 6px
+			border-bottom: solid 1px $main
+
+.slider .logo-wrapper:nth-child(1)
+	width: 131px
+	height: 40px
+.slider .logo-wrapper:nth-child(2)
+	width: 150px
+	height: 31px
+.slider .logo-wrapper:nth-child(3)
+	width: 136px
+	height: 44px
+	margin-top: 10px
+.slider .logo-wrapper:nth-child(4)
+	width: 169px
+	height: 25px
+.slider .logo-wrapper:nth-child(5)
+	width: 148px
+	height: 36px
+
+.slider
+	line-height: 50px
+	.logo-wrapper
+		display: inline-block
+		.slider__logo
+			vertical-align: middle
+			display: inline-block
+
+.owl-carousel .owl-item
+	text-align: center
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span
+	background: $accent
+
+/* Partners END ================== */
+
+/* 6. FOOTER ================== */
+
+.footer 
+	min-height: 526px
+	width: 100vw
+	background-image: url(../img/footer_bg.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+	overflow: hidden
+	padding-top: 30px
+	padding-bottom: 30px
+	&__contact-info
+		float: left
+		padding-top: 62px
+	&__forms
+		padding-top: 62px
+	&__copyright
+		display: block
+		float: left
+		color: #707070
+		font-family: "OpenSans-Light"
+		font-size: 12px
+		line-height: 21px
+		margin-top: 137px
+
+.subscrib
+	height: 71px
+	border-bottom: 1px solid #323232
+	&__text
+		font-family: "OpenSans-Light"
+		font-size: 13px
+		color: #fff
+		line-height: 20px
+		float: left
+	&__icon
+		float: right
+		color: #fff
+		font-size: 14px
+		padding-top: 14px
+		a
+			padding-left: 13px
+			padding-right: 3px
+			color: #fff
+			display: block
+			float: left
+		a:hover
+			color: $accent
+
+.contact-info
+	width: 43%
+	padding-right: 150px
+	&__title
+		font-family: "Oswald-Bold"
+		font-size: 14px
+		font-weight: 700
+		line-height: 21px
+		color: #fff
+		text-transform: uppercase
+		padding-bottom: 19px
+	&__description, &__tel, &__mail
+		font-family: "OpenSans-Light"
+		font-size: 12px
+		line-height: 21px
+		color: #c6c6c6
+	&__description
+		padding-bottom: 20px
+	&__tel::before
+		font-family: "FontAwesome"
+		content: "\f10b"
+		display: inline-block
+		margin-right: 12px
+		font-size: 16px
+	&__mail::before
+		font-family: "FontAwesome"
+		content: "\f0e0"
+		display: inline-block
+		margin-right: 11px
+		font-size: 12px
+
+.forms
+	width: 57%
+	float: right
+	&__title
+		font-family: "Oswald-Bold"
+		font-size: 14px
+		font-weight: 700
+		line-height: 21px
+		color: #fff
+		text-transform: uppercase
+		padding-bottom: 24px
+	&__name, &__email, &__subject
+		width: 211px
+		margin-right: 13px
+		margin-bottom: 16px
+		text-transform: uppercase
+		+tr(1s)
+		+placeholder-color(#656565)
+		font-size: 12px
+		line-height: 21px
+		letter-spacing: 1px
+		overflow: visible
+	&__subject
+		margin-right: 0
+	&__name:hover, &__email:hover, &__subject:hover, &__message:hover
+		border: 1px solid $accent
+		+tr(1s)
+	&__name:focus, &__email:focus, &__subject:focus, &__message:focus
+		border: 1px solid $accent
+	&__name::-webkit-input-placeholder, &__email::-webkit-input-placeholder, &__subject::-webkit-input-placeholder
+		text-indent: 0px
+		transition: text-indent 1s ease
+	&__name::-moz-placeholder, &__email::-moz-placeholder, &__subject::-moz-placeholder
+		text-indent: 0px
+		transition: text-indent 1s ease
+	&__name:-moz-placeholder, &__email:-moz-placeholder, &__subject:-moz-placeholder
+		text-indent: 0px
+		transition: text-indent 1s ease
+	&__name:-ms-input-placeholder, &__email:-ms-input-placeholder, &__subject:-ms-input-placeholder
+		text-indent: 0px
+		transition: text-indent 1s ease
+	&__name:focus::-webkit-input-placeholder, &__email:focus::-webkit-input-placeholder, &__subject:focus::-webkit-input-placeholder
+		text-indent: 500px
+		transition: text-indent 1s ease
+	&__name:focus::-moz-placeholder, &__email:focus::-moz-placeholder, &__subject:focus::-moz-placeholder
+		text-indent: 500px
+		transition: text-indent 1s ease
+	&__name:focus:-moz-placeholder, &__email:focus:-moz-placeholder, &__subject:focus:-moz-placeholder
+		text-indent: 500px
+		transition: text-indent 1s ease
+	&__name:focus:-ms-input-placeholder, &__email:focus:-ms-input-placeholder, &__subject:focus:-ms-input-placeholder
+		text-indent: 500px
+		transition: text-indent 1s ease
+	&__message::-webkit-input-placeholder
+		opacity: 1
+		transition: opacity 0.5s ease
+	&__message::-moz-placeholder
+		opacity: 1
+		transition: opacity 0.5s ease
+	&__message:-moz-placeholder
+		opacity: 1
+		transition: opacity 0.5s ease
+	&__message:-ms-input-placeholder
+		opacity: 1
+		transition: opacity 0.5s ease
+	&__message:focus::-webkit-input-placeholder
+		opacity: 0
+		transition: opacity 0.5s ease
+	&__message:focus::-moz-placeholder
+		opacity: 0
+		transition: opacity 0.5s ease
+	&__message:focus:-moz-placeholder
+		opacity: 0
+		transition: opacity 0.5s ease
+	&__message:focus:-ms-input-placeholder
+		opacity: 0
+		transition: opacity 0.5s ease
+	&__message
+		display: block
+		width: 441px
+		height: 111px
+		margin-right: 10px
+		float: left
+		text-transform: uppercase
+		+tr(1s)
+		+placeholder-color(#656565)
+		font-size: 12px
+		line-height: 21px
+		letter-spacing: 1px
+		overflow: auto
+	&__button
+		color: #fff
+		font-family: "Oswald"
+		font-size: 14px
+		line-height: 21px
+		text-transform: uppercase
+		float: right
+		width: 212px
+		letter-spacing: 0.8px
+	&__button::after
+		font-family: "FontAwesome"
+		content: "\f105"
+		display: inline-block
+		padding-left: 23px
+		font-size: 20px
+	&__prompt
+		color: #707070
+		font-family: "Open Sans-Light"
+		font-size: 12px
+		line-height: 21px
+		float: left
+		margin-top: 15px
+		margin-left: 4px
+		letter-spacing: 0.6px
+
+// Медиа запросы ↓
+@import "media" // Всегда в конце
+
+

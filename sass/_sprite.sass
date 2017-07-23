@@ -1,0 +1,32 @@
+$s-check_icon: 83px 88px -83px -88px 10px 8px 111px 110px 'sprite.png'
+$s-features_icon_1: 91px 0px -91px 0px 20px 23px 111px 110px 'sprite.png'
+$s-features_icon_2: 44px 44px -44px -44px 26px 22px 111px 110px 'sprite.png'
+$s-features_icon_3: 0px 88px 0px -88px 16px 22px 111px 110px 'sprite.png'
+$s-features_icon_4: 91px 38px -91px -38px 19px 23px 111px 110px 'sprite.png'
+$s-nav-l: 31px 88px -31px -88px 11px 19px 111px 110px 'sprite.png'
+$s-nav-r: 57px 88px -57px -88px 11px 19px 111px 110px 'sprite.png'
+$s-pricing_1: 47px 0px -47px 0px 29px 29px 111px 110px 'sprite.png'
+$s-pricing_2: 0px 44px 0px -44px 29px 29px 111px 110px 'sprite.png'
+$s-pricing_3: 0px 0px 0px 0px 32px 29px 111px 110px 'sprite.png'
+
+
+
+=sprite-width($sprite)
+	width: nth($sprite, 5)
+
+=sprite-height($sprite)
+	height: nth($sprite, 6)
+
+=sprite-position($sprite)
+	$sprite-offset-x: nth($sprite, 3)
+	$sprite-offset-y: nth($sprite, 4)
+	background-position: $sprite-offset-x  $sprite-offset-y
+
+=sprite-image($sprite)
+	background-image: url(../img/sprite/sprite.png)
+
+=sprite($sprite)
+	+sprite-image($sprite)
+	+sprite-position($sprite)
+	+sprite-width($sprite)
+	+sprite-height($sprite)

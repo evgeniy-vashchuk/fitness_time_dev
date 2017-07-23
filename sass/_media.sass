@@ -1,0 +1,284 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	/**/
+
+	.features
+		padding-bottom: 40px
+
+	.br
+		display: block
+
+	.our-team
+		padding-bottom: 61px
+		&__trainer--last
+			margin-right: 13px
+		&__trainer--first
+			margin-left: 13px
+
+	.dh-container--1, .dh-container--5
+			margin-left: 13px
+	.dh-container--4, .dh-container--8
+			margin-right: 13px
+
+	.pricing__plan--last
+		margin-right: 23px
+
+	.contact-info
+		width: 48%
+		text-align: right
+		padding-right: 0
+	.forms
+		width: 48%
+		&__name, &__email, &__subject
+			width: 50%
+			min-width: 212px
+			margin-right: 0
+		&__message
+			width: 80%
+			min-width: 212px
+			margin-bottom: 16px
+		&__button
+			float: left
+		&__prompt
+			margin-top: 11px
+			margin-left: 0
+			width: 500px
+	.footer__copyright
+		margin-top: 300px
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	/**/
+	.partners
+		padding-bottom: 30px
+		min-height: 220px
+		&__title
+			margin-bottom: 30px
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 842px)
+	/**/
+
+	.navigation
+		display: none
+	.hamburger
+		display: block
+
+	.slide-1, .slide-2, .slide-3, .header
+		height: 450px
+
+	.header
+		&__inscription-top
+			margin-top: 150px
+
+	.features
+		&__services--2
+			padding-right: 0
+		&__services--3
+			padding-left: 0
+
+	.services
+		width: 50%
+		height: 150px
+		&__title
+			text-align: center
+		&__description
+			text-align: center
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+	/**/
+
+	.slide-1
+		background-position-x: -500px
+	.slide-2
+		background-position-x: -350px
+	.slide-3
+		background-position-x: -500px
+
+	.mm-listview > li:not(.mm-divider):after
+		left: 20px
+		right: 20px
+
+	.features
+		padding-top: 30px
+		padding-bottom: 10px
+		&__description
+			padding-bottom: 30px
+
+	.our-team, .gallery, .pricing, .partners
+		padding-top: 30px
+		padding-bottom: 15px
+		&__title
+			margin-bottom: 20px
+	.gallery
+		&__description
+			margin-bottom: 20px
+
+	.dh-container
+		margin: 5px
+
+	.dh-overlay
+		display: none
+	.arrow-top:hover
+		background-color: $main
+
+	.plan
+		margin-bottom: 15px
+		margin-right: 0
+
+	.partners
+		padding-bottom: 30px
+		min-height: 150px
+
+@media only screen and (max-width : 584px)
+
+	.slide-1
+		background-position-x: -600px
+	.slide-3
+		background-position-x: -610px
+
+	.features
+		&__services--1, &__services--3
+			padding-right: 0
+		&__services--2, &__services--4
+			padding-left: 0
+
+	.services
+		width: 100%
+		height: auto
+		margin-bottom: 20px
+		&__title
+			text-align: center
+		&__description
+			text-align: center
+
+	.footer__copyright
+		margin-top: 92px
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	/**/
+	.header
+		&__inscription-top
+			margin-left: 0
+		&__title
+			font-size: 22px
+			margin-left: 0
+		&__inscription-bottom
+			font-size: 13px
+			margin-left: 0
+		&__phone
+			margin-right: 0
+		.wrapper
+			padding-left: 0
+
+	.slide-1
+		background-position-x: -680px
+	.slide-2
+		background-position-x: -460px
+	.slide-3
+		background-position-x: -700px
+
+	.arrow-top
+		right: 5px
+		width: 50px
+		height: 50px
+		background-color: rgba($main, 0.3)
+		&:hover
+			background-color: rgba($main, 0.3)
+		&__icon
+			width: 30px
+			height: 30px
+		&.top-hidden
+			bottom: 5px
+
+
+	.features
+		&__description
+			font-size: 14px
+
+	.plan
+		width: 290px
+		&__left
+			width: 90px
+		&__price
+			font-size: 30px
+			padding-top: 15px
+		&__right
+			margin-right: 6px
+		&__icon-1, &__icon-2, &__icon-3
+			left: 28px
+		&__points
+			li::before
+				padding-right: 15px
+
+	.footer
+		&__contact-info
+			display: none
+		&__forms
+			width: 100%
+			padding-top: 30px
+		&__copyright
+			float: none
+			width: 290px
+			margin: 0 auto
+			margin-top: 25px
+	.forms
+		float: none
+		&__title
+			text-align: center
+		&__name, &__email, &__subject, &__message
+			width: 100%
+			float: none
+		&__button
+			float: none
+			display: block !important
+			margin: 0 auto
+		&__prompt
+			float: none
+			width: auto
+			text-align: center
+
+
+	.subscrib__text
+		display: none
+	.subscrib__icon
+		float: none
+		width: 266px
+		margin: 0 auto
+		font-size: 17px
+		a
+			padding-left: 20px
+
+@media only screen and (max-width : 400px)
+
+	.slide-1
+		background-position-x: -763px
+	.slide-2
+		background-position-x: -460px
+	.slide-3
+		background-position-x: -778px
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+
+	.slide-1, .slide-2, .slide-3, .header
+		height: 400px
+
+	.slide-1
+		background-position-x: -674px
+	.slide-3
+		background-position-x: -680px
+
+	.header
+		&__inscription-top
+			margin-top: 128px
